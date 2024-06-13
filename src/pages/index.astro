@@ -1,0 +1,10 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { actions } from "astro:actions";
+
+const posts = await actions.getPostsByThread(1);
+---
+
+<MainLayout title="Index">
+  {posts.map((post) => <p>{post.content}</p>)}
+</MainLayout>

@@ -1,0 +1,70 @@
+---
+import SearchIcon from "./icons/SearchIcon.astro";
+
+interface Props {
+  userImage: string;
+}
+const { userImage } = Astro.props;
+---
+
+<header class="navbar bg-base-200 mb-2">
+  <nav class="flex-none justify-between w-full">
+    <ul class="menu menu-horizontal px-1">
+      <li class="sm:hidden">
+        <details>
+          <summary> Nav </summary>
+          <ul class="p-2 bg-base-200 rounded-t-none">
+            <li><a href="#">Index</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Rules</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="hidden sm:block"><a href="#">Index</a></li>
+      <li class="hidden sm:block"><a href="#">Users</a></li>
+      <li class="hidden sm:block"><a href="#">Rules</a></li>
+
+      <li class="sm:hidden">
+        <details>
+          <summary>Topics</summary>
+          <ul class="p-2 bg-base-200 rounded-t-none">
+            <li><a href="#">Posted</a></li>
+            <li><a href="#">New</a></li>
+            <li><a href="#">Active</a></li>
+            <li><a href="#">Unanswered</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="hidden sm:block"><a href="#">Posted</a></li>
+      <li class="hidden sm:block"><a href="#">New</a></li>
+      <li class="hidden sm:block"><a href="#">Active</a></li>
+      <li class="hidden sm:block"><a href="#">Unanswered</a></li>
+    </ul>
+    <div class="flex flex-row">
+      <button class="btn btn-ghost btn-circle">
+        <SearchIcon />
+      </button>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="w-8 rounded-full">
+            <img
+              alt="User profile image"
+              src={userImage ??
+                "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+            />
+          </div>
+        </div>
+        <ul
+          tabindex="0"
+          class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-36"
+        >
+          <li>
+            <a class="justify-between"> Profile </a>
+          </li>
+          <li><a>Settings</a></li>
+          <li><a>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
