@@ -1,18 +1,21 @@
-import {
-  integer,
-  sqliteTable,
-  text,
-  uniqueIndex,
-} from "drizzle-orm/sqlite-core";
 import { relations, sql } from "drizzle-orm";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
+import {
+  boolean,
+  integer,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+  uniqueIndex,
+} from "drizzle-orm/pg-core";
 
 // Users
-export const users = sqliteTable(
+export const users = pgTable(
   "users",
   {
-    id: integer("id").primaryKey({ autoIncrement: true }),
+    id: serial("id").primaryKey(),
     email: text("email").notNull().unique(),
     publicName: text("public_mame").notNull(),
     imageUrl: text("image_url"),
@@ -25,13 +28,11 @@ export const selectUserSchema = createSelectSchema(users);
 export type SelectUser = z.infer<typeof selectUserSchema>;
 
 // Posts
-export const posts = sqliteTable("posts", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  creationTimestampUnixMs: integer("creation_ts_unix_ms", {
-    mode: "timestamp_ms",
-  })
+export const posts = pgTable("posts", {
+  id: serial("id").primaryKey(),
+  creationTimestampUnixMs: timestamp("creation_ts_unix_ms")
     .notNull()
-    .default(sql`(unixepoch() * 1000)`),
+    .default(sql`now()`),
   content: text("content").notNull(),
   authorId: integer("author_id")
     .notNull()
@@ -42,26 +43,28 @@ export const insertPostSchema = createInsertSchema(posts);
 export type InsertPost = z.infer<typeof insertPostSchema>;
 export const selectPostSchema = createSelectSchema(posts);
 export type SelectPost = z.infer<typeof insertPostSchema>;
-
-// Threads
-export const threads = sqliteTable("threads", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  title: text("title").notNull(),
-  closed: integer("closed", { mode: "boolean" }).notNull().default(false),
-});
-export const insertThreadSchema = createInsertSchema(threads);
-export type InsertThread = z.infer<typeof insertThreadSchema>;
-export const selectThreadSchema = createSelectSchema(threads);
-export type SelectThread = z.infer<typeof insertPostSchema>;
-
-// Relations
-export const threadsRelations = relations(threads, ({ many }) => ({
-  threadContent: many(posts, { relationName: "thread_content" }),
-}));
 export const postsRelations = relations(posts, ({ one }) => ({
   threadContent: one(threads, {
     fields: [posts.threadId],
     references: [threads.id],
     relationName: "thread_content",
   }),
+}));
+
+// Threads
+export const threads = pgTable("threads", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  creationTimestampUnixMs: timestamp("creation_ts_unix_ms")
+    .notNull()
+    .default(sql`now()`),
+  resolved: boolean("resolved").notNull().default(false),
+  readOnly: boolean("read_only").notNull().default(false),
+});
+export const insertThreadSchema = createInsertSchema(threads);
+export type InsertThread = z.infer<typeof insertThreadSchema>;
+export const selectThreadSchema = createSelectSchema(threads);
+export type SelectThread = z.infer<typeof insertPostSchema>;
+export const threadsRelations = relations(threads, ({ many }) => ({
+  threadContent: many(posts, { relationName: "thread_content" }),
 }));

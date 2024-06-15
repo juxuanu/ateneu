@@ -1,6 +1,7 @@
 import { defineAction } from "astro:actions";
 import { z } from "zod";
 import { db } from "../../infrastructure/db/db.ts";
+import { threads } from "../../infrastructure/db/schema.ts";
 
 export const server = {
   getPostsByThread: defineAction({
@@ -12,3 +13,5 @@ export const server = {
     },
   }),
 };
+
+db.select().from(threads).limit(10).orderBy();

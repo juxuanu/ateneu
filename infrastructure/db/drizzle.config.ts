@@ -1,11 +1,9 @@
 import { defineConfig } from "drizzle-kit";
-import { dbPath } from "./db.ts";
+import { dbFullPath } from "./db.ts";
 
 export default defineConfig({
-  dialect: "sqlite",
+  dialect: "postgresql",
   schema: "./infrastructure/db/schema.ts",
   out: "./infrastructure/db/drizzle",
-  dbCredentials: {
-    url: dbPath,
-  },
+  dbCredentials: { url: dbFullPath },
 });
