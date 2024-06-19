@@ -1,9 +1,15 @@
 import { defineConfig } from "drizzle-kit";
-import { dbFullPath } from "./db.ts";
+import { password, port, host, user, database } from "./db.ts";
 
 export default defineConfig({
   dialect: "postgresql",
   schema: "./infrastructure/db/schema.ts",
   out: "./infrastructure/db/drizzle",
-  dbCredentials: { url: dbFullPath },
+  dbCredentials: {
+    user,
+    password,
+    host,
+    port,
+    database,
+  },
 });

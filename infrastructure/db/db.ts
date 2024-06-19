@@ -1,27 +1,22 @@
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
+import * as process from "node:process";
 
-export const dbUrl = process.env.POSTGRE_URL;
-export const dbPort = process.env.POSTGRE_PORT;
-export const dbPassword = process.env.POSTGRE_PASSWORD;
-export const dbUser = process.env.POSTGRE_USER;
+export const host = process.env.STAGE === "pro" ? "db" : "127.0.0.1";
+export const user = "ateneu";
+export const password = "ateneu";
+export const port = 5432;
+export const database = "postgres";
 
-if (!dbUser) {
-  throw new Error("Missing DB user (POSTGRE_USER)");
-}
-if (!dbPassword) {
-  throw new Error("Missing DB password (POSTGRE_PASSWORD)");
-}
-if (!dbUrl) {
-  throw new Error("Missing DB URL (POSTGRE_URL)");
-}
-if (!dbPort) {
-  console.warn("Missing DB port (POSTGRE_PORT)");
-}
+const buildDbFullPath = () => {
+  const fullUrl = `${user}:${password}@${host}:${port}`;
+  console.info("DB PATH", fullUrl);
+  return fullUrl;
+};
 
-export const dbFullPath = `${dbUser}:${dbPassword}@${dbUrl}:${dbPort}`;
-
-const queryClient = postgres(`postgres://${dbFullPath}`);
+const queryClient = postgres(`postgres://${buildDbFullPath()}`);
 export const db = drizzle(queryClient);
 
-export const migrationClient = postgres(`postgres://${dbFullPath}`, { max: 1 });
+export const migrationClient = postgres(`postgres://${buildDbFullPath()}`, {
+  max: 1,
+});

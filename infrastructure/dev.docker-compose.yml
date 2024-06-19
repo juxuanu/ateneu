@@ -1,0 +1,13 @@
+services:
+  db-dev:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=ateneu
+      - POSTGRES_USER=ateneu
+    volumes:
+      - pgdata-dev:/var/lib/postgresql/data
+    network_mode: host
+
+volumes:
+  pgdata-dev:

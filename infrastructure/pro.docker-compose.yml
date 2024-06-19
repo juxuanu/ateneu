@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=ateneu
+      - POSTGRES_USER=ateneu
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - internal-net
+
+  front:
+    build:
+      dockerfile: astro.Dockerfile
+      context: ..
+    ports:
+      - 4321:4321
+    depends_on:
+      - db
+    networks:
+      - internal-net
+
+volumes:
+  pgdata:
+
+networks:
+  internal-net:
+    name: internal-net
