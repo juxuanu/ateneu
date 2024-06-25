@@ -12,5 +12,6 @@
         "name": "@astrojs/ts-plugin"
       }
     ]
-  }
+  },
+  "include": ["src", "public", "astro.config.mjs", "eslint.config.cjs", "tailwind.config.mjs"]
 }

@@ -1,10 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { actions } from "astro:actions";
+import { homeOverview } from "../backend/interactors/home-overview";
 
-const posts = await actions.getPostsByThread(1);
+const threads = await homeOverview.getThreadsWithLatestPosts();
 ---
 
 <MainLayout title="Index">
-  {posts.map((post) => <p>{post.content}</p>)}
+  {threads.map((thread) => <h2>{thread.title}</h2>)}
 </MainLayout>

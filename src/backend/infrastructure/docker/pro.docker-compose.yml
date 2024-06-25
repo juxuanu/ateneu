@@ -13,7 +13,7 @@ services:
   front:
     build:
       dockerfile: astro.Dockerfile
-      context: ..
+      context: ../../../../
     ports:
       - 4321:4321
     depends_on:
