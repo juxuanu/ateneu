@@ -1,7 +1,6 @@
 import { canPostsBeAddedToThread, type Thread } from "./domain.ts";
 import { DateTime } from "luxon";
-import assert from "node:assert";
-import { beforeEach, describe, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 
 describe("Given a read-only thread", () => {
   let thread: Thread;
@@ -14,6 +13,6 @@ describe("Given a read-only thread", () => {
     };
   });
   it("should not be possible to append new posts", () => {
-    assert.strictEqual(canPostsBeAddedToThread(thread), false);
+    expect(canPostsBeAddedToThread(thread)).toBeFalsy();
   });
 });

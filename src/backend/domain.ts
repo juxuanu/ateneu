@@ -2,6 +2,7 @@ import { DateTime } from "luxon";
 
 export type Tag = {
   name: string;
+  description: string;
 };
 
 export type Thread = {

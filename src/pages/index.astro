@@ -2,9 +2,18 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { homeOverview } from "../backend/interactors/home-overview";
 
-const threads = await homeOverview.getThreadsWithLatestPosts();
+const tags = await homeOverview.getAllTags();
 ---
 
 <MainLayout title="Index">
-  {threads.map((thread) => <h2>{thread.title}</h2>)}
+  {
+    tags.map((tag) => (
+      <>
+        <>
+          <h2>{tag.name}</h2>
+          <p class="opacity-50">{tag.description}</p>
+        </>
+      </>
+    ))
+  }
 </MainLayout>

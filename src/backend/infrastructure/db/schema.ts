@@ -31,7 +31,10 @@ export type SelectUser = z.infer<typeof selectUserSchema>;
 // Posts
 export const posts = pgTable("posts", {
   id: serial("id").primaryKey(),
-  creationTimestampUnixMs: timestamp("creation_ts_unix_ms")
+  creationTimestamp: timestamp("creation_ts_unix_ms", {
+    withTimezone: true,
+    mode: "date",
+  })
     .notNull()
     .defaultNow(),
   content: text("content").notNull(),
@@ -56,7 +59,10 @@ export const postsRelations = relations(posts, ({ one }) => ({
 export const threads = pgTable("threads", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  creationTimestampUnixMs: timestamp("creation_ts_unix_ms")
+  creationTimestamp: timestamp("creation_ts_unix_ms", {
+    withTimezone: true,
+    mode: "date",
+  })
     .notNull()
     .defaultNow(),
   resolved: boolean("resolved").notNull().default(false),
@@ -75,6 +81,7 @@ export const threadsRelations = relations(threads, ({ many }) => ({
 // Tags
 export const tags = pgTable("tags", {
   name: text("name").primaryKey(),
+  description: text("description"),
 });
 export const insertTagSchema = createInsertSchema(tags);
 export type InsertTag = z.infer<typeof insertTagSchema>;
