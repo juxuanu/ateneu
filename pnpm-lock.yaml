@@ -54,9 +54,6 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.4)
-      '@types/better-sqlite3':
-        specifier: ^7.6.10
-        version: 7.6.10
       '@types/luxon':
         specifier: ^3.4.2
         version: 3.4.2
@@ -4356,6 +4353,7 @@ snapshots:
   '@types/better-sqlite3@7.6.10':
     dependencies:
       '@types/node': 20.14.2
+    optional: true
 
   '@types/cookie@0.6.0': {}
 
