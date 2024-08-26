@@ -15,8 +15,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(astro@4.14.5(@types/node@20.14.2)(rollup@4.21.0)(typescript@5.4.5))(tailwindcss@3.4.4)
       '@astrojs/ts-plugin':
-        specifier: ^1.9.0
-        version: 1.9.0
+        specifier: ^1.10.1
+        version: 1.10.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.16.1
         version: 7.16.1(@typescript-eslint/parser@7.16.1(eslint@9.9.1(jiti@1.21.3))(typescript@5.4.5))(eslint@9.9.1(jiti@1.21.3))(typescript@5.4.5)
@@ -104,14 +104,8 @@ packages:
     peerDependencies:
       typescript: ^5.0.0
 
-  '@astrojs/compiler@2.10.2':
-    resolution: {integrity: sha512-bvH+v8AirwpRWCkYJEyWYdc5Cs/BjG2ZTxIJzttHilXgfKJAdW2496KsUQKzf5j2tOHtaHXKKn9hb9WZiBGpEg==}
-
   '@astrojs/compiler@2.10.3':
     resolution: {integrity: sha512-bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==}
-
-  '@astrojs/compiler@2.8.0':
-    resolution: {integrity: sha512-yrpD1WRGqsJwANaDIdtHo+YVjvIOFAjC83lu5qENIgrafwZcJgSXDuwVMXOgok4tFzpeKLsFQ6c3FoUdloLWBQ==}
 
   '@astrojs/compiler@2.9.2':
     resolution: {integrity: sha512-Vpu0Ffsj8SoV+N0DFHlxxOMKHwSC9059Xy/OlG1t6uFYSoJXxkBC2WyF6igO7x10V+8uJrhOxaXr3nA90kJXow==}
@@ -148,8 +142,11 @@ packages:
     resolution: {integrity: sha512-/ca/+D8MIKEC8/A9cSaPUqQNZm+Es/ZinRv0ZAzvu2ios7POQSsVD+VOj7/hypWNsNM3T7RpfgNq7H2TU1KEHA==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
 
-  '@astrojs/ts-plugin@1.9.0':
-    resolution: {integrity: sha512-QastYNlKF2I0oOksKRm3bG8auk2AlyD6be7ptHzSHKj/ikUvK9ObnS2ruGFh0h8aQ760Qw7aEJ9JZT/IZ7t46A==}
+  '@astrojs/ts-plugin@1.10.1':
+    resolution: {integrity: sha512-T7Z8fob6bkgLlcYiJSsn84wF5XelS0VJSEC4BRPnEHZj3eeOrmmMl8uZqBTJ+zArGMOfyhhA7X+SUGRIAZApHQ==}
+
+  '@astrojs/yaml2ts@0.2.1':
+    resolution: {integrity: sha512-CBaNwDQJz20E5WxzQh4thLVfhB3JEEGz72wRA+oJp6fQR37QLAqXZJU0mHC+yqMOQ6oj0GfRPJrz6hjf+zm6zA==}
 
   '@babel/code-frame@7.24.7':
     resolution: {integrity: sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==}
@@ -1189,6 +1186,9 @@ packages:
     peerDependencies:
       typescript: '*'
 
+  '@volar/language-core@2.4.0':
+    resolution: {integrity: sha512-FTla+khE+sYK0qJP+6hwPAAUwiNHVMph4RUXpxf/FIPKUP61NFrVZorml4mjFShnueR2y9/j8/vnh09YwVdH7A==}
+
   '@volar/language-core@2.4.0-alpha.15':
     resolution: {integrity: sha512-mt8z4Fm2WxfQYoQHPcKVjLQV6PgPqyKLbkCVY2cr5RSaamqCHjhKEpsFX66aL4D/7oYguuaUw9Bx03Vt0TpIIA==}
 
@@ -1201,8 +1201,14 @@ packages:
   '@volar/snapshot-document@2.4.0-alpha.15':
     resolution: {integrity: sha512-8lnX0eZ7/lM+hakO5kspWABi4nijppxTy9XU0f9ns2lZ/JCE0t9EurNNiOaw4MWFO9USr0H72Ut0LCB9o4rpqA==}
 
+  '@volar/source-map@2.4.0':
+    resolution: {integrity: sha512-2ceY8/NEZvN6F44TXw2qRP6AQsvCYhV2bxaBPWxV9HqIfkbRydSksTFObCF1DBDNBfKiZTS8G/4vqV6cvjdOIQ==}
+
   '@volar/source-map@2.4.0-alpha.15':
     resolution: {integrity: sha512-8Htngw5TmBY4L3ClDqBGyfLhsB8EmoEXUH1xydyEtEoK0O6NX5ur4Jw8jgvscTlwzizyl/wsN1vn0cQXVbbXYg==}
+
+  '@volar/typescript@2.4.0':
+    resolution: {integrity: sha512-9zx3lQWgHmVd+JRRAHUSRiEhe4TlzL7U7e6ulWXOxHH/WNYxzKwCvZD7WYWEZFdw4dHfTD9vUR0yPQO6GilCaQ==}
 
   '@volar/typescript@2.4.0-alpha.15':
     resolution: {integrity: sha512-U3StRBbDuxV6Woa4hvGS4kz3XcOzrWUKgFdEFN+ba1x3eaYg7+ytau8ul05xgA+UNGLXXsKur7fTUhDFyISk0w==}
@@ -3103,11 +3109,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.6.2:
-    resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.6.3:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
@@ -3736,6 +3737,11 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
+  yaml@2.5.0:
+    resolution: {integrity: sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
   yargs-parser@21.1.1:
     resolution: {integrity: sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==}
     engines: {node: '>=12'}
@@ -3790,11 +3796,7 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/compiler@2.10.2': {}
-
   '@astrojs/compiler@2.10.3': {}
-
-  '@astrojs/compiler@2.8.0': {}
 
   '@astrojs/compiler@2.9.2': {}
 
@@ -3802,8 +3804,8 @@ snapshots:
 
   '@astrojs/language-server@2.12.8(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.4.5)':
     dependencies:
-      '@astrojs/compiler': 2.10.2
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@astrojs/compiler': 2.10.3
+      '@jridgewell/sourcemap-codec': 1.5.0
       '@volar/kit': 2.4.0-alpha.15(typescript@5.4.5)
       '@volar/language-core': 2.4.0-alpha.15
       '@volar/language-server': 2.4.0-alpha.15
@@ -3874,14 +3876,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/ts-plugin@1.9.0':
+  '@astrojs/ts-plugin@1.10.1':
     dependencies:
-      '@astrojs/compiler': 2.8.0
-      '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/language-core': 2.4.0-alpha.15
-      '@volar/typescript': 2.4.0-alpha.15
-      semver: 7.6.2
+      '@astrojs/compiler': 2.10.3
+      '@astrojs/yaml2ts': 0.2.1
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@volar/language-core': 2.4.0
+      '@volar/typescript': 2.4.0
+      semver: 7.6.3
       vscode-languageserver-textdocument: 1.0.11
+
+  '@astrojs/yaml2ts@0.2.1':
+    dependencies:
+      yaml: 2.5.0
 
   '@babel/code-frame@7.24.7':
     dependencies:
@@ -4722,6 +4729,10 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
 
+  '@volar/language-core@2.4.0':
+    dependencies:
+      '@volar/source-map': 2.4.0
+
   '@volar/language-core@2.4.0-alpha.15':
     dependencies:
       '@volar/source-map': 2.4.0-alpha.15
@@ -4751,7 +4762,15 @@ snapshots:
       vscode-languageserver-protocol: 3.17.5
       vscode-languageserver-textdocument: 1.0.11
 
+  '@volar/source-map@2.4.0': {}
+
   '@volar/source-map@2.4.0-alpha.15': {}
+
+  '@volar/typescript@2.4.0':
+    dependencies:
+      '@volar/language-core': 2.4.0
+      path-browserify: 1.0.1
+      vscode-uri: 3.0.8
 
   '@volar/typescript@2.4.0-alpha.15':
     dependencies:
@@ -4872,11 +4891,11 @@ snapshots:
 
   astro-eslint-parser@1.0.2(typescript@5.4.5):
     dependencies:
-      '@astrojs/compiler': 2.10.2
+      '@astrojs/compiler': 2.10.3
       '@typescript-eslint/scope-manager': 7.16.1
       '@typescript-eslint/types': 7.16.1
       '@typescript-eslint/typescript-estree': 7.16.1(typescript@5.4.5)
-      astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.10.2)
+      astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.10.3)
       debug: 4.3.6
       entities: 4.5.0
       eslint-scope: 8.0.2
@@ -4973,9 +4992,9 @@ snapshots:
       - terser
       - typescript
 
-  astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.10.2):
+  astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.10.3):
     dependencies:
-      '@astrojs/compiler': 2.10.2
+      '@astrojs/compiler': 2.10.3
       synckit: 0.9.0
 
   autoprefixer@10.4.19(postcss@8.4.38):
@@ -6268,7 +6287,7 @@ snapshots:
 
   magic-string@0.30.10:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   magic-string@0.30.11:
     dependencies:
@@ -7150,8 +7169,6 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.6.2: {}
-
   semver@7.6.3: {}
 
   set-function-length@1.2.2:
@@ -7842,6 +7859,8 @@ snapshots:
   yallist@3.1.1: {}
 
   yaml@2.4.3: {}
+
+  yaml@2.5.0: {}
 
   yargs-parser@21.1.1: {}
 
