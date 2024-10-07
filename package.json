@@ -15,7 +15,7 @@
     "db:studio": "drizzle-kit studio --config=./src/backend/infrastructure/db/drizzle.config.ts"
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.3",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.10.1",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
